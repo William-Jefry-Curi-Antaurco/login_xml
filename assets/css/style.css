@@ -1,0 +1,288 @@
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.fondo {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  border-radius: 30px;
+  background: url('../img/fondo_unasam.jpg') center / cover no-repeat;
+}
+
+#loadingOverlay {
+  background-color: rgba(0, 0, 0, 0.97);
+}
+
+.fade-curtain {
+  transform-origin: center;
+  animation: cerrarCentro 0.9s ease forwards;
+}
+
+@keyframes cerrarCentro {
+  from {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}
+
+.layout-auth {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.login-box {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  padding: 18px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  height: 640px;
+}
+
+.input-sgd {
+  width: 100%;
+  padding: 0.7rem 0;
+  color: #000;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #111827;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.input-sgd::placeholder {
+  color: #111827;
+  opacity: 0.8;
+}
+
+.input-sgd:focus {
+  border-bottom-color: #60a5fa;
+}
+
+.aparecer,
+.aparecer1 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: entradaSuave 0.9s ease forwards;
+}
+
+@keyframes entradaSuave {
+  from {
+    transform: translateY(20px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+#title-unasam {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+  color: #1d4ed8;
+}
+
+.logo-unasam {
+  width: 140px;
+  height: auto;
+  margin-top: 0.75rem;
+  padding: 6px;
+  border-radius: 20%;
+  background: rgb(255 255 255 / 0.2);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.logo-unasam:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+.bottom-slider {
+  position: relative;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  width: 200%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slider-page {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+#slider-page {
+  display: grid;
+  place-items: center;
+}
+
+.slider-track.show-options {
+  transform: translateX(-50%);
+}
+
+.slider-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+  transform: translateY(-50%);
+}
+
+
+
+
+
+.slider-container {
+  width: 100%;
+  height: 500px;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.slider-track-carrusel {
+  display: flex;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+
+.slider-actions {
+  position: absolute;
+  bottom: 30px;
+}
+
+.slider-actions a {
+  margin: 0 10px;
+  padding: 10px 50px;
+  font-size: 14px;
+  text-decoration: none;
+  color: rgb(255 255 255 / 0.8);
+  background: rgb(255 255 255 / 0.2);
+  border-radius: 8px;
+}
+
+.slider-actions a:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 1260px) {
+  body {
+    overflow-y: auto !important;
+  }
+
+  .layout-auth {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem 1rem;
+  }
+
+  .slider-wrapper {
+    position: static;
+    order: 1;
+    width: 100%;
+    max-width: 420px;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    transform: none;
+  }
+
+  .slider-container {
+    height: clamp(220px, 50vw, 320px);
+  }
+
+  .slider-actions {
+    position: static;
+    margin-top: 10px;
+    transform: none;
+    justify-content: center;
+  }
+
+  .slider-actions a {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout-auth {
+    padding: 1rem;
+  }
+
+  .login-box {
+    padding: 16px;
+    border-radius: 16px;
+
+  }
+
+  #title-unasam {
+    font-size: 1.05rem;
+  }
+
+  .logo-unasam {
+    width: 110px;
+  }
+
+  .slider-wrapper {
+    max-width: 100%;
+  }
+
+  .slider-container {
+    height: 220px;
+  }
+
+  .slider-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .slider-actions a {
+    display: block;
+    width: 100%;
+    margin: 5px;
+    padding: 8px 10px;
+    font-size: 12px;
+    text-align: center;
+  }
+}

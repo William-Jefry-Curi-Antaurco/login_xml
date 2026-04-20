@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unasam - Iniciar Sesión</title>
+
+  <script type="text/javascript" src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap"
+  />
+</head>
+
+<body class="h-screen w-screen overflow-hidden relative bg-black">
+
+<div class="fondo"></div>
+
+<div id="loadingOverlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center px-6">
+  <div class="mb-8"></div>
+</div>
+
+<div id="loginContainer" class="absolute inset-0 z-10 px-4 hidden">
+  <div class="layout-auth">
+
+    <div class="login-box relative">
+      <div class="flex flex-col items-center mb-6">
+        <h1 id="title-unasam">
+          Universidad Nacional Santiago Antúnez de Mayolo
+        </h1>
+
+        <img src="assets/img/logo_unasam.png" alt="Logo de la UNASAM" class="logo-unasam" />
+      </div>
+
+      <h2 class="text-black text-center text-[1.2rem] sm:text-[1.35rem] font-normal mb-2 tracking-wide">
+        Sistema de Gestión Documental
+      </h2>
+
+      <p class="text-black text-center text-sm sm:text-[0.95rem] mb-8 leading-relaxed">
+        Ingrese sus credenciales para acceder al sistema
+      </p>
+
+      <form id="loginForm" class="space-y-6" method="post" action="#">
+        <div>
+          <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="input-sgd"
+                  placeholder="Nombre de usuario"
+                  required="required"
+          />
+        </div>
+
+        <div>
+          <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="input-sgd"
+                  placeholder="Contraseña"
+                  required="required"
+          />
+        </div>
+
+        <button
+                type="submit"
+                class="w-full bg-[#2761F5] hover:bg-[#2A00F7] text-white font-medium py-2.5 transition duration-300 tracking-wide rounded-md">
+          INGRESAR
+        </button>
+      </form>
+
+      <div class="bottom-slider mt-7 overflow-hidden">
+        <div id="sliderTrack" class="slider-track">
+
+          <div class="slider-page">
+            <div class="flex justify-between items-end text-xs sm:text-sm w-full">
+              <span class="text-blue-950">Versión: 0.0.0</span>
+
+              <div class="flex flex-col text-right space-y-1">
+                <a href="#" class="text-blue-950 hover:text-white hover:underline transition">
+                  ¿Olvidó su contraseña?
+                </a>
+
+                <a
+                        href="#"
+                        onclick="abrirMenu(); return false;"
+                        class="text-blue-950 hover:text-white hover:underline transition">
+                  Más opciones
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-page">
+            <div id="slider-page" class="grid grid-cols-4 items-end gap-4 text-xs sm:text-sm w-full">
+              <button
+                      type="button"
+                      onclick="cerrarMenu()"
+                      class="text-blue-950 text-3xl leading-none hover:text-white transition text-left">
+                &#8249;
+              </button>
+
+              <a
+                      href="#"
+                      onclick="abrirVelocidad(); return false;"
+                      class="text-blue-950 hover:text-white hover:underline transition text-center">
+                Prueba de Velocidad
+              </a>
+
+              <a href="#" class="text-blue-950 hover:text-white hover:underline transition text-center">
+                Requisitos del Sistema
+              </a>
+
+              <a href="#" class="text-blue-950 hover:text-white hover:underline transition text-center">
+                Manual del Sistema
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-wrapper">
+      <div class="slider-container hidden" id="SliderContainer">
+        <div class="slider-track-carrusel" id="sliderTrack_carrusel">
+
+          <div class="slide">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/imagen_manual.png" alt="Imagen 1" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/imagen_reglamento.png" alt="Imagen 2" />
+            </a>
+          </div>
+
+          <div class="slide">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/imagen_web.png" alt="Imagen 3" />
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slider-actions">
+        <a href="#">Descargar manual</a>
+        <a href="#">Descargar manual</a>
+        <a href="#">Descargar manual</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal posible borrar -->
+<div id="modalVelocidad" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-lg shadow-xl w-[90%] max-w-[600px] p-6 relative">
+
+      <span
+              onclick="cerrarVelocidad()"
+              class="absolute top-3 right-4 text-gray-500 cursor-pointer text-xl">
+        &#10005;
+      </span>
+
+    <div class="space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-24 text-gray-600">&#8646; Ping</span>
+        <div class="flex-1 bg-orange-500 text-white text-center py-1 rounded" id="pingBox">
+          0 ms
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="w-24 text-gray-600">&#8595; Descarga</span>
+        <div class="flex-1 bg-blue-200 text-gray-700 py-1 rounded text-center" id="downloadBox">
+          Calculando...
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="w-24 text-gray-600">&#8593; Carga</span>
+        <div class="flex-1 bg-blue-200 text-gray-700 py-1 rounded text-center" id="uploadBox">
+          Calculando...
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button
+                id="btnTest"
+                type="button"
+                class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">
+          PROBAR VELOCIDAD
+        </button>
+      </div>
+
+      <p onclick="cerrarVelocidad()" class="text-center text-red-600 text-sm cursor-pointer">
+        Haga clic aquí para cerrar la ventana
+      </p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="assets/js/scriptLogin.js"></script>
+</body>
+</html>
