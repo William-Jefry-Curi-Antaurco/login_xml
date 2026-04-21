@@ -59,21 +59,6 @@ function cerrarMenu() { sliderTrack.classList.remove("show-options"); }
 
 
 
-function abrirVelocidad()  { show(modalVelocidad); }
-function cerrarVelocidad() { hide(modalVelocidad); }
-
-function probarVelocidad() {
-  pingBox.textContent     = "Calculando...";
-  downloadBox.textContent = "Calculando...";
-  uploadBox.textContent   = "Calculando...";
-
-  setTimeout(() => { pingBox.textContent     = `${Math.floor(Math.random() * 100)} ms`;              }, 1000);
-  setTimeout(() => { downloadBox.textContent = `${(Math.random() * 50 + 10).toFixed(2)} Mbps`;       }, 2000);
-  setTimeout(() => { uploadBox.textContent   = `${(Math.random() * 20 +  5).toFixed(2)} Mbps`;       }, 3000);
-}
-
-
-
 
 function iniciarCarrusel() {
   if (!carrusel || carrusel.children.length <= 1) return;

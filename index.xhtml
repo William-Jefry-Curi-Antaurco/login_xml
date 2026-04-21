@@ -159,54 +159,6 @@
   </div>
 </div>
 
-<!-- Modal posible borrar -->
-<div id="modalVelocidad" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
-  <div class="bg-white rounded-lg shadow-xl w-[90%] max-w-[600px] p-6 relative">
-
-      <span
-              onclick="cerrarVelocidad()"
-              class="absolute top-3 right-4 text-gray-500 cursor-pointer text-xl">
-        &#10005;
-      </span>
-
-    <div class="space-y-4">
-      <div class="flex items-center gap-3">
-        <span class="w-24 text-gray-600">&#8646; Ping</span>
-        <div class="flex-1 bg-orange-500 text-white text-center py-1 rounded" id="pingBox">
-          0 ms
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <span class="w-24 text-gray-600">&#8595; Descarga</span>
-        <div class="flex-1 bg-blue-200 text-gray-700 py-1 rounded text-center" id="downloadBox">
-          Calculando...
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <span class="w-24 text-gray-600">&#8593; Carga</span>
-        <div class="flex-1 bg-blue-200 text-gray-700 py-1 rounded text-center" id="uploadBox">
-          Calculando...
-        </div>
-      </div>
-
-      <div class="text-center mt-4">
-        <button
-                id="btnTest"
-                type="button"
-                class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition">
-          PROBAR VELOCIDAD
-        </button>
-      </div>
-
-      <p onclick="cerrarVelocidad()" class="text-center text-red-600 text-sm cursor-pointer">
-        Haga clic aquí para cerrar la ventana
-      </p>
-    </div>
-  </div>
-</div>
-
 <script type="text/javascript" src="assets/js/scriptLogin.js"></script>
 </body>
 </html>
