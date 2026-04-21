@@ -75,11 +75,11 @@ function construirLogo3D(config = {}) {
   if (!logo3D) return;
 
   const defaults = {
-
-    layers: 32,
-    depth: 1.7,
-    spreadX: 0.34,
-    spreadY: 0.24,
+    text: "unasam",
+    layers: 9,
+    depth: 0.6,
+    spreadX: 0.09,
+    spreadY: 0.06,
     size: "clamp(4.5rem, 9vw, 8.5rem)",
     widthScale: 1,
     letterSpacing: "0.16em"
