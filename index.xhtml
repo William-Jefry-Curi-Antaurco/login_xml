@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unasam - Iniciar Sesión</title>
 
   <script type="text/javascript" src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   <link
           rel="stylesheet"
+          type="text/css"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap"
   />
 </head>
 
-<body class="h-screen w-screen overflow-hidden relative bg-black">
+<body class="relative h-screen w-screen overflow-hidden bg-black">
 
 <div class="fondo"></div>
 
@@ -22,23 +24,25 @@
   <div class="mb-8"></div>
 </div>
 
-<div id="loginContainer" class="absolute inset-0 z-10 px-4 hidden">
+<div id="loginContainer" class="absolute inset-0 z-10 hidden px-4">
   <div class="layout-auth">
 
     <div class="login-box relative">
-      <div class="flex flex-col items-center mb-6">
-        <h1 id="title-unasam">
-          Universidad Nacional Santiago Antúnez de Mayolo
-        </h1>
+      <div class="mb-6 flex flex-col items-center">
+        <h1 id="title-unasam">Universidad Nacional Santiago Antúnez de Mayolo</h1>
 
-        <img src="assets/img/logo_unasam.png" alt="Logo de la UNASAM" class="logo-unasam" />
+        <img
+                src="assets/img/logo_unasam.png"
+                alt="Logo de la UNASAM"
+                class="logo-unasam"
+        />
       </div>
 
-      <h2 class="text-black text-center text-[1.2rem] sm:text-[1.35rem] font-normal mb-2 tracking-wide">
+      <h2 class="mb-2 text-center text-[1.2rem] font-normal tracking-wide text-black sm:text-[1.35rem]">
         Sistema de Gestión Documental
       </h2>
 
-      <p class="text-black text-center text-sm sm:text-[0.95rem] mb-8 leading-relaxed">
+      <p class="mb-8 text-center text-sm leading-relaxed text-black sm:text-[0.95rem]">
         Ingrese sus credenciales para acceder al sistema
       </p>
 
@@ -65,29 +69,33 @@
           />
         </div>
 
-        <button
-                type="submit"
-                class="w-full bg-[#2761F5] hover:bg-[#2A00F7] text-white font-medium py-2.5 transition duration-300 tracking-wide rounded-md">
-          INGRESAR
-        </button>
+        <div>
+          <button
+                  type="submit"
+                  class="w-full rounded-md bg-[#2761F5] py-2.5 font-medium tracking-wide text-white transition duration-300 hover:bg-[#2A00F7]"
+          >
+            INGRESAR
+          </button>
+        </div>
       </form>
 
       <div class="bottom-slider mt-7 overflow-hidden">
         <div id="sliderTrack" class="slider-track">
 
           <div class="slider-page">
-            <div class="flex justify-between items-end text-xs sm:text-sm w-full">
+            <div class="flex w-full items-end justify-between text-xs sm:text-sm">
               <span class="text-blue-950">Versión: 0.0.0</span>
 
-              <div class="flex flex-col text-right space-y-1">
-                <a href="#" class="text-blue-950 hover:text-white hover:underline transition">
+              <div class="flex flex-col space-y-1 text-right">
+                <a href="#" class="text-blue-950 transition hover:text-white hover:underline">
                   ¿Olvidó su contraseña?
                 </a>
 
                 <a
                         href="#"
                         onclick="abrirMenu(); return false;"
-                        class="text-blue-950 hover:text-white hover:underline transition">
+                        class="text-blue-950 transition hover:text-white hover:underline"
+                >
                   Más opciones
                 </a>
               </div>
@@ -95,26 +103,34 @@
           </div>
 
           <div class="slider-page">
-            <div id="slider-page" class="grid grid-cols-4 items-end gap-4 text-xs sm:text-sm w-full">
+            <div id="slider-page" class="grid w-full grid-cols-4 items-end gap-4 text-xs sm:text-sm">
               <button
                       type="button"
                       onclick="cerrarMenu()"
-                      class="text-blue-950 text-3xl leading-none hover:text-white transition text-left">
+                      class="text-left text-3xl leading-none text-blue-950 transition hover:text-white"
+              >
                 &#8249;
               </button>
 
               <a
                       href="#"
                       onclick="abrirVelocidad(); return false;"
-                      class="text-blue-950 hover:text-white hover:underline transition text-center">
+                      class="text-center text-blue-950 transition hover:text-white hover:underline"
+              >
                 Prueba de Velocidad
               </a>
 
-              <a href="#" class="text-blue-950 hover:text-white hover:underline transition text-center">
+              <a
+                      href="#"
+                      class="text-center text-blue-950 transition hover:text-white hover:underline"
+              >
                 Requisitos del Sistema
               </a>
 
-              <a href="#" class="text-blue-950 hover:text-white hover:underline transition text-center">
+              <a
+                      href="#"
+                      class="text-center text-blue-950 transition hover:text-white hover:underline"
+              >
                 Manual del Sistema
               </a>
             </div>
@@ -125,34 +141,23 @@
     </div>
 
     <div class="slider-wrapper">
-      <div class="slider-container hidden" id="SliderContainer">
-        <div class="slider-track-carrusel" id="sliderTrack_carrusel">
-
-          <div class="slide">
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/imagen_manual.png" alt="Imagen 1" />
-            </a>
+      <div id="SliderContainer" class="slider-container hidden">
+        <div class="logo-stage">
+          <div class="logo-3d-box">
+            <div
+                    id="Logo3D"
+                    class="logo-3d"
+            ></div>
           </div>
 
-          <div class="slide">
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/imagen_reglamento.png" alt="Imagen 2" />
-            </a>
-          </div>
-
-          <div class="slide">
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <img src="assets/img/imagen_web.png" alt="Imagen 3" />
-            </a>
-          </div>
-
+          <div class="logo-base-glow"></div>
         </div>
       </div>
 
       <div class="slider-actions">
         <a href="#">Descargar manual</a>
-        <a href="#">Descargar manual</a>
-        <a href="#">Descargar manual</a>
+        <a href="#">Descargar reglamento</a>
+        <a href="#">Ir al sitio web</a>
       </div>
     </div>
 
