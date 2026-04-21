@@ -14,7 +14,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 30px;
 }
 
@@ -100,17 +100,10 @@ body {
   }
 }
 
-#title-unasam {
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0.03em;
-  color: #1d4ed8;
-}
+
 
 .logo-unasam {
-  width: 140px;
+  width: 200px;
   height: auto;
   margin-top: 0.75rem;
   padding: 6px;
@@ -254,6 +247,26 @@ body {
 
 
 
+.Indices p {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin: 0.6rem 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  font-family: "monospace", sans-serif;
+  padding: 5px;
+}
+
+.Indices p:first-child {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.Indices p:last-child {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+}
 
 .slider-actions {
   position: relative;
