@@ -1,65 +1,55 @@
-const $ = (id) => document.getElementById(id);
+const byId = (id) => document.getElementById(id);
 
-const overlay = $("loadingOverlay");
-const login = $("loginContainer");
-const slider = $("SliderContainer");
-const sliderTrack = $("sliderTrack");
-const btnTest = $("btnTest");
-const logo3D = $("Logo3D");
+const loadingOverlay = byId("loadingOverlay");
+const loginContainer = byId("loginContainer");
+const sliderContainer = byId("SliderContainer");
+const sliderTrack = byId("sliderTrack");
 
-const toggleDisplay = (el, show, displayClass = "flex") => {
-  if (!el) return;
-  el.classList.toggle("hidden", !show);
-  el.classList.toggle(displayClass, show);
+const toggleDisplay = (element, show, displayClass = "flex") => {
+  if (!element) return;
+  element.classList.toggle("hidden", !show);
+  element.classList.toggle(displayClass, show);
 };
 
-const show = (el, cls = "flex") => toggleDisplay(el, true, cls);
-const hide = (el, cls = "flex") => toggleDisplay(el, false, cls);
+const showElement = (element, displayClass = "flex") => {
+  toggleDisplay(element, true, displayClass);
+};
 
-window.addEventListener("load", init);
+const hideElement = (element, displayClass = "flex") => {
+  toggleDisplay(element, false, displayClass);
+};
 
-function init() {
-  animarCargaInicial();
-  construirLogo3D({
-    text: "Universidad Nacional Santiago Antunez De Mayolo",
+window.addEventListener("load", initLoginView);
 
-    layers: 34,
-    depth: 1.7,
-    spreadX: 0.34,
-    spreadY: 0.24,
-    rotateX: 18,
-    rotateY: -18,
-    size: "clamp(4.5rem, 9vw, 8.5rem)",
-    widthScale: 1.02,
-    letterSpacing: "0.16em"
-  });
-
-  btnTest?.addEventListener("click", typeof probarVelocidad === "function" ? probarVelocidad : null);
+function initLoginView() {
+  animateInitialLoad();
 }
 
-function animarCargaInicial() {
-  show(overlay);
+function animateInitialLoad() {
+  showElement(loadingOverlay);
 
   setTimeout(() => {
-    overlay?.classList.add("fade-curtain");
+    loadingOverlay?.classList.add("fade-curtain");
 
     setTimeout(() => {
-      hide(overlay);
-      overlay?.classList.remove("fade-curtain");
-      mostrarElementosPrincipales();
+      hideElement(loadingOverlay);
+      loadingOverlay?.classList.remove("fade-curtain");
+      showMainSections();
     }, 900);
   }, 480);
 }
 
-function mostrarElementosPrincipales() {
-  if (login) {
-    login.classList.remove("hidden");
-    login.classList.add("aparecer");
+function showMainSections() {
+  if (loginContainer) {
+    loginContainer.classList.remove("hidden");
+    loginContainer.classList.add("aparecer");
   }
 
-  if (slider) {
-    slider.classList.remove("hidden");
-    requestAnimationFrame(() => slider.classList.add("aparecer1"));
+  if (sliderContainer) {
+    sliderContainer.classList.remove("hidden");
+    requestAnimationFrame(() => {
+      sliderContainer.classList.add("aparecer1");
+    });
   }
 }
 
@@ -69,68 +59,6 @@ function abrirMenu() {
 
 function cerrarMenu() {
   sliderTrack?.classList.remove("show-options");
-}
-
-function construirLogo3D(config = {}) {
-  if (!logo3D) return;
-
-  const defaults = {
-    text: "unasam",
-    layers: 9,
-    depth: 0.6,
-    spreadX: 0.09,
-    spreadY: 0.06,
-    size: "clamp(4.5rem, 9vw, 8.5rem)",
-    widthScale: 1,
-    letterSpacing: "0.16em"
-  };
-
-  const {
-    text,
-    layers,
-    depth,
-    spreadX,
-    spreadY,
-    size,
-    widthScale,
-    letterSpacing
-  } = { ...defaults, ...config };
-
-
-  logo3D.innerHTML = "";
-  logo3D.dataset.text = text;
-
-  Object.assign(logo3D.style, {
-    transform: "translateZ(0)",
-    fontSize: size,
-    letterSpacing: letterSpacing
-  });
-
-  const fragment = document.createDocumentFragment();
-
-  for (let i = layers; i >= 0; i--) {
-    const span = document.createElement("span");
-
-
-    span.textContent = text;
-
-    span.className =
-        i === 0
-            ? "front"
-            : i === layers
-                ? "depth back"
-                : "depth";
-
-
-    const offset = i;
-    const transform = `translate(-50%, -50%) translate3d(${offset * spreadX}px, ${offset * spreadY}px, ${-offset * depth}px)`;
-
-    span.style.transform = transform;
-
-    fragment.appendChild(span);
-  }
-
-  logo3D.appendChild(fragment);
 }
 
 window.abrirMenu = abrirMenu;
