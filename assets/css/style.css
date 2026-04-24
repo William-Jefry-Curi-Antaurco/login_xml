@@ -100,21 +100,11 @@ body {
 }
 
 .submit {
-  background: linear-gradient(
-          90deg,
-          rgba(2, 0, 36, 1) 0%,
-          rgba(9, 9, 121, 1) 35%,
-          rgba(0, 212, 255, 1) 100%
-  );
+  background: #076F9C;
 }
 
 .submit:hover {
-  background: radial-gradient(
-          circle,
-          rgba(180, 180, 204, 1) 0%,
-          rgba(9, 9, 121, 1) 35%,
-          rgba(0, 212, 255, 1) 100%
-  );
+  background:#27B7F5;
 }
 
 .aparecer,
@@ -195,21 +185,26 @@ body {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 0.5rem;
+
+  /*border: 2px solid blue;*/
+
 }
 
 .slider-container img {
-  width: min(80%, 520px);
+  width: 100%;
   height: auto;
   object-fit: contain;
   display: block;
+  /*border: 2px solid red;*/
 }
 
 .Indices {
-  margin-bottom: 1.5rem;
+  /*border: 2px solid yellow;*/
+  margin: auto;
 }
 
 .Indices p {
-  width: min(650px, 100%);
+  width: 100%;
   padding: 10px 5px;
   font-family: "Inter", sans-serif;
   font-style: italic;
@@ -217,16 +212,18 @@ body {
   line-height: 1.7;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+  /*border: 2px solid green;*/
 }
 
 .Indices p:first-child {
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(1.6rem, 1.6vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.9);
+
 }
 
 .Indices p:last-child {
-  font-size: clamp(0.88rem, 1.2vw, 1.05rem);
-  color: rgba(255, 255, 255, 0.65);
+  font-size: clamp(1rem, 1.2vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 
@@ -240,6 +237,7 @@ body {
   padding: 2px;
   width: 100%;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 
@@ -263,6 +261,8 @@ body {
           box-shadow 0.25s ease,
           border-color 0.25s ease,
           background 0.25s ease;
+
+
 }
 
 .icon-manual,
@@ -335,7 +335,7 @@ body {
   margin-top: auto;
   padding-inline-start: 25px;
   padding-bottom: 1rem;
-  /*border: 2px solid green;*/
+
 }
 
 .Seguro_pag img {
