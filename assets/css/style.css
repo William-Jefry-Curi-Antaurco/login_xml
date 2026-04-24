@@ -207,10 +207,9 @@ body {
   line-height: 1.7;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
-  font-family: "monospace", sans-serif;
+  font-family: 'Inter', sans-serif;
   width: min(650px, 100%);
   padding: 10px 5px;
-  /*border: 2px solid blue;*/
 }
 
 .Indices p:first-child {
