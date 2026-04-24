@@ -1,5 +1,6 @@
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", "Inter", sans-serif;
+  overflow-y: auto !important;
 }
 
 .fondo {
@@ -15,17 +16,21 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 30px;
-  background: #0E2652;
-  background: linear-gradient(90deg,
-  rgba(14, 38, 82, 0.95) 0%,
-  rgba(14, 38, 82, 0.77) 23%,
-  rgba(14, 38, 82, 0.45) 45%,
-  rgba(1, 10, 61, 0.11) 75%);
-
+  background: linear-gradient(
+          90deg,
+          rgba(14, 38, 82, 0.95) 0%,
+          rgba(14, 38, 82, 0.77) 23%,
+          rgba(14, 38, 82, 0.45) 45%,
+          rgba(1, 10, 61, 0.11) 75%
+  );
 }
 
 #loadingOverlay {
   background-color: rgba(0, 0, 0, 0.97);
+}
+
+#loginContainer {
+  overflow-y: auto;
 }
 
 .fade-curtain {
@@ -38,6 +43,7 @@ body {
     transform: scaleY(1);
     opacity: 1;
   }
+
   to {
     transform: scaleY(0);
     opacity: 0;
@@ -45,23 +51,24 @@ body {
 }
 
 .layout-auth {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   width: 100%;
   min-height: 100vh;
-  padding: 2rem 1rem;
+  box-sizing: border-box;
+  border: 2px solid red;
 }
 
 .login-box {
   position: relative;
-  width: 100%;
-  max-width: 420px;
-  height: 680px;
+  z-index: 2;
+  width: min(100%, 420px);
+  min-height: 620px;
   padding: 18px;
-  overflow: hidden;
   border-radius: 18px;
-  background: rgba(249, 250, 252);
+  background: rgb(249, 250, 252);
   backdrop-filter: blur(8px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
@@ -71,8 +78,8 @@ body {
   text-shadow:
           -1px -1px 0 darkgray,
           1px -1px 0 darkgray,
-          -1px  1px 0 darkgray,
-          1px  1px 0 darkgray;
+          -1px 1px 0 darkgray,
+          1px 1px 0 darkgray;
 }
 
 .userbox p,
@@ -85,12 +92,11 @@ body {
   padding: 0.8rem 0.65rem;
   font-size: 14px;
   font-weight: 500;
-  color: #4491D4;
+  color: #4491d4;
   border: 2px solid rgb(198, 199, 201);
   outline: none;
   border-radius: 6px;
   transition: all 0.3s ease;
-
 }
 
 .submit {
@@ -123,6 +129,7 @@ body {
     transform: translateY(20px) scale(0.98);
     opacity: 0;
   }
+
   to {
     transform: translateY(0) scale(1);
     opacity: 1;
@@ -131,11 +138,11 @@ body {
 
 .logo-unasam {
   width: 200px;
+  max-width: 80%;
   height: auto;
   margin-top: 2px;
   padding: 2px;
   border-radius: 20%;
-
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
   transition: transform 0.25s ease, filter 0.25s ease;
 }
@@ -172,15 +179,16 @@ body {
 
 .slider-wrapper {
   position: absolute;
-  top: 0;
+  top: 1%;
   bottom: 0;
   left: 1.5rem;
   width: min(800px, 46vw);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-block: 2rem;
-  padding-inline-start: 1.5rem;
+
+
+  border: 2px solid blue;
 }
 
 .slider-container {
@@ -190,88 +198,66 @@ body {
 }
 
 .slider-container img {
-  width: 80%;
+  width: min(80%, 520px);
   height: auto;
   object-fit: contain;
+  display: block;
 }
-
-
 
 .Indices {
   margin-bottom: 1.5rem;
 }
 
 .Indices p {
+  width: min(650px, 100%);
+  padding: 10px 5px;
+  font-family: "Inter", sans-serif;
   font-style: italic;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
-  font-family: 'Inter', sans-serif;
-  width: min(650px, 100%);
-  padding: 10px 5px;
 }
 
 .Indices p:first-child {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
   color: rgba(255, 255, 255, 0.85);
 }
 
 .Indices p:last-child {
-  font-size: 0.95rem;
+  font-size: clamp(0.88rem, 1.2vw, 1.05rem);
   color: rgba(255, 255, 255, 0.65);
-
 }
-
 
 
 
 .slider-actions {
+  border: 2px solid green;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
+  justify-content: center;
   align-items: center;
-  padding-inline-start: 25px;
-  margin-bottom: 0;
+  gap: 0.9rem;
+  padding: 2px;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
-.spacer {
-  padding: 20px;
-  /*border: 2px solid blue;*/
 
-}
-
-.Seguro_pag {
-  margin-top: auto;
-  padding-inline-start: 25px;
-  padding-bottom: 1rem;
-}
-
-.Seguro_pag img {
-  width: min(540px, 90%);
-  height: 70px;
-  padding: 5px;
-  background: rgba(21, 37, 71, 0.9);
-  border-radius: 20px;
-  margin-inline-start: 0;
-}
 
 .item-action {
   display: flex;
   align-items: center;
   gap: 12px;
-  width: 200px;
-  height: 70px;
-  padding: 5px;
+  max-width: 30%;
+  min-height: auto;
+  padding: 1%;
   border: 1px solid rgba(254, 140, 0, 0.5);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   color: #0f172a;
-
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(6px);
-
   transition:
           transform 0.25s ease,
           box-shadow 0.25s ease,
@@ -279,28 +265,27 @@ body {
           background 0.25s ease;
 }
 
-
-
-
-.icon-manual {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  background: url("../img/icon_manual.svg") no-repeat center / contain;
-}
-
-.icon-requisitos {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  background: url("../img/icon_requisitos.svg") no-repeat center / contain;
-}
-
+.icon-manual,
+.icon-requisitos,
 .icon-video {
   width: 42px;
   height: 42px;
   flex-shrink: 0;
-  background: url("../img/icon_video.svg") no-repeat center / contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.icon-manual {
+  background-image: url("../img/icon_manual.svg");
+}
+
+.icon-requisitos {
+  background-image: url("../img/icon_requisitos.svg");
+}
+
+.icon-video {
+  background-image: url("../img/icon_video.svg");
 }
 
 .action-text {
@@ -334,134 +319,202 @@ body {
           inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
-.item-action:hover .action-text {
-  color: #fe8c00;
-}
-
+.item-action:hover .action-text,
 .item-action:hover .action-text span {
   color: #fe8c00;
 }
 
 .item-action:focus-visible {
-  outline: 3px solid rgb(254, 140, 0,0.56);
+  outline: 3px solid rgba(254, 140, 0, 0.56);
   outline-offset: 3px;
 }
 
 
+.Seguro_pag {
+  padding-block-start: 20px;
+  margin-top: auto;
+  padding-inline-start: 25px;
+  padding-bottom: 1rem;
+  border: 2px solid green;
+}
+
+.Seguro_pag img {
+  width: min(540px, 90%);
+  height: 70px;
+  padding: 5px;
+  background: rgba(21, 37, 71, 0.9);
+  border-radius: 20px;
+  object-fit: contain;
+  display: block;
+
+}
+
 
 @media (max-width: 1250px) {
-  body {
-    overflow-y: auto!important;
-  }
   .layout-auth {
-    padding: 2rem 2rem 2rem 1rem;
+    padding-right: 2rem;
+  }
+
+  .login-box {
+    width: min(100%, 400px);
+    min-height: auto;
   }
 
   .slider-wrapper {
-    width: min(500px, 42vw);
+    width: min(520px, 42vw);
   }
 
-  .Indices p:first-child {
-    font-size: 1rem; }
-  .Indices p:last-child  {
-    font-size: 0.88rem; }
-
   .slider-container img {
-    width: 75%; }
+    width: min(70%, 380px);
+  }
 
+  .logo-unasam {
+    width: 170px;
+  }
+  .action-text {
+    font-size: 0.76rem;
+  }
+
+  .action-text span {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 940px) {
+  .action-text {
+    font-size: 0.50rem;
+  }
+
+  .action-text span {
+    font-size: 0.40rem;
+  }
 }
 
 
-
-@media (max-width: 1105px) {
-
-  .layout-auth {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1.5rem 1rem;
-  }
-
-  .slider-wrapper {
-    display: flex;
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 2rem;
-    align-items: flex-start;
-    text-align: left;
-    flex-direction: column;
-  }
-
-  .slider-container img {
-    width: 100%;
-    max-width: 320px;
-    margin: 0;
-    display: block;
-  }
-
-  .slider-container img {
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-  .Indices p {
-    width: 100%;
-    padding: 0;
-    text-align: left;
-  }
-
-  .slider-actions {
-    justify-content: center;
-  }
-
-  .Seguro_pag {
-    padding: 0;
-    margin-top: 20px;
-  }
-
-  .Seguro_pag img {
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-}
-
-
-
-
-@media (max-width: 540px) {
-  .fondo {
+@media (max-width: 890px) {
+  .fondo,
+  .fondo::before {
     border-radius: 0;
   }
 
   .fondo::before {
-    border-radius: 0;
-
     background: linear-gradient(
             180deg,
             rgba(14, 38, 82, 0.92) 0%,
-            rgba(14, 38, 82, 0.75) 50%,
-            rgba(1, 10, 61, 0.55) 100%
+            rgba(14, 38, 82, 0.78) 48%,
+            rgba(1, 10, 61, 0.65) 100%
     );
   }
 
+  #loginContainer {
+    position: absolute;
+    inset: 0;
+    padding-inline: 1rem;
+  }
+
   .layout-auth {
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    gap: 1.2rem;
+    padding: 1.25rem 1rem 2rem;
+    border: 2px solid blue;
+  }
+
+  .slider-wrapper {
+    display: contents;
+    border: 2px solid red;
+  }
+
+  .slider-container {
+    order: 1;
+    display: flex !important;
+    width: 100%;
+    justify-content: safe;
+    margin: 0;
+    border: 2px solid red;
+
+  }
+
+  .slider-container img {
+    width: 60%;
+    height: 5%;
+    border: 2px solid yellow;
   }
 
   .login-box {
-    max-width: 100%;
+    order: 2;
+    width: min(100%, 420px);
+    min-height: auto;
+    padding: 20px 18px;
+  }
+
+  .Indices {
+    order: 3;
+    width: min(100%, 560px);
+    margin: 0;
+    text-align: center;
+  }
+
+  .Indices p {
     width: 100%;
-    height: auto;
-    min-height: unset;
+    padding: 4px 0;
+    text-align: center;
+    line-height: 1.45;
+  }
+
+  .slider-actions {
+    order: 4;
+    width: min(100%, 640px);
+    justify-content: center;
+    padding-inline-start: 0;
+    margin-top: 0.4rem;
+  }
+
+  .Seguro_pag {
+    order: 5;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-top: 0.4rem;
+  }
+
+  .Seguro_pag img {
+    width: min(100%, 340px);
+    height: 60px;
+    margin: 0 auto;
+  }
+  .action-text {
+    font-size: 0.76rem;
+  }
+
+  .action-text span {
+    font-size: 0.62rem;
+  }
+}
+
+
+@media (max-width: 540px) {
+  #loginContainer {
+    padding-inline: 0.75rem;
+  }
+
+  .layout-auth {
+    padding: 1rem 0 1.5rem;
+    gap: 1rem;
+  }
+
+  .slider-container img {
+    width: min(80vw, 250px);
+    max-height: 145px;
+  }
+
+  .login-box {
+    width: 100%;
     border-radius: 16px;
-    padding: 22px 18px;
+    padding: 18px 16px;
   }
 
   .logo-unasam {
@@ -473,33 +526,36 @@ body {
     font-size: 13px;
   }
 
+  .Indices p:first-child {
+    font-size: 0.98rem;
+  }
 
+  .Indices p:last-child {
+    font-size: 0.84rem;
+  }
 
   .slider-actions {
     flex-direction: column;
     align-items: center;
+    gap: 0.75rem;
   }
 
   .item-action {
-    width: 100%;
-    max-width: 280px;
-    height: 60px;
+    width: min(100%, 280px);
+    min-height: 60px;
   }
-  .slider-wrapper {
-    display: flex;
-    position: static;
-    transform: none;
-    width: 100%;
-    align-items: safe;
+
+  .Seguro_pag img {
+    width: min(100%, 300px);
+    height: 56px;
   }
 }
 
 
-
-@media (max-width: 380px) {
+@media (max-width: 420px) {
   .login-box {
     border-radius: 12px;
-    padding: 18px 14px;
+    padding: 16px 14px;
   }
 
   .logo-unasam {
@@ -511,7 +567,24 @@ body {
     padding: 0.7rem 0.55rem;
   }
 
+  .slider-container img {
+    width: min(82vw, 220px);
+    max-height: 125px;
+  }
+
+  .icon-manual,
+  .icon-requisitos,
+  .icon-video {
+    display: none;
+  }
+
+  .item-action {
+    justify-content: center;
+    text-align: center;
+  }
+
   .action-text {
+    text-align: center;
     font-size: 0.85rem;
   }
 
@@ -520,24 +593,9 @@ body {
   }
 }
 
-@media (min-width: 1400px) {
-  .layout-auth {
-    padding-right: 4rem;
-  }
 
-  .slider-wrapper {
-    width: min(780px, 50vw);
-  }
 
-  .Indices p:first-child { font-size: 1.25rem; }
-  .Indices p:last-child  { font-size: 1.05rem; }
 
-  .slider-container img { width: 85%; }
 
-  .item-action {
-    width: 220px;
-    height: 76px;
-  }
-}
 
 
