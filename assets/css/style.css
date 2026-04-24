@@ -16,7 +16,11 @@ body {
   inset: 0;
   border-radius: 30px;
   background: #0E2652;
-  background: linear-gradient(90deg,rgba(14, 38, 82, 0.95) 0%, rgba(14, 38, 82, 0.77) 23%, rgba(14, 38, 82, 0.45) 45%, rgba(1, 10, 61, 0.11) 75%);
+  background: linear-gradient(90deg,
+  rgba(14, 38, 82, 0.95) 0%,
+  rgba(14, 38, 82, 0.77) 23%,
+  rgba(14, 38, 82, 0.45) 45%,
+  rgba(1, 10, 61, 0.11) 75%);
 
 }
 
@@ -202,6 +206,7 @@ body {
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
   letter-spacing: 0.02em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
   font-family: "monospace", sans-serif;
   width: min(650px, 100%);
   padding: 10px 5px;
@@ -296,7 +301,7 @@ body {
   width: 42px;
   height: 42px;
   flex-shrink: 0;
-  background: url("../img/icon-video.svg") no-repeat center / contain;
+  background: url("../img/icon_video.svg") no-repeat center / contain;
 }
 
 .action-text {
@@ -345,7 +350,10 @@ body {
 
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1250px) {
+  body {
+    overflow-y: auto!important;
+  }
   .layout-auth {
     padding: 2rem 2rem 2rem 1rem;
   }
@@ -354,35 +362,76 @@ body {
     width: min(500px, 42vw);
   }
 
-  .Indices p:first-child { font-size: 1rem; }
-  .Indices p:last-child  { font-size: 0.88rem; }
+  .Indices p:first-child {
+    font-size: 1rem; }
+  .Indices p:last-child  {
+    font-size: 0.88rem; }
 
-  .slider-container img { width: 75%; }
+  .slider-container img {
+    width: 75%; }
+
 }
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 1105px) {
+
   .layout-auth {
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 1.5rem 1rem;
   }
 
-
   .slider-wrapper {
-    display: none;
+    display: flex;
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2rem;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: column;
   }
 
-  .login-box {
-    max-width: 460px;
-    height: auto;
-    min-height: 580px;
+  .slider-container img {
+    width: 100%;
+    max-width: 320px;
+    margin: 0;
+    display: block;
   }
 
-  .logo-unasam {
-    width: 160px;
+  .slider-container img {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
   }
+
+  .Indices p {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  .slider-actions {
+    justify-content: center;
+  }
+
+  .Seguro_pag {
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  .Seguro_pag img {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
 }
+
+
 
 
 @media (max-width: 540px) {
@@ -426,17 +475,23 @@ body {
   }
 
 
+
   .slider-actions {
     flex-direction: column;
-    align-items: flex-start;
-    padding-inline-start: 0;
-    gap: 0.6rem;
+    align-items: center;
   }
 
   .item-action {
     width: 100%;
     max-width: 280px;
     height: 60px;
+  }
+  .slider-wrapper {
+    display: flex;
+    position: static;
+    transform: none;
+    width: 100%;
+    align-items: safe;
   }
 }
 
@@ -466,6 +521,24 @@ body {
   }
 }
 
+@media (min-width: 1400px) {
+  .layout-auth {
+    padding-right: 4rem;
+  }
 
+  .slider-wrapper {
+    width: min(780px, 50vw);
+  }
+
+  .Indices p:first-child { font-size: 1.25rem; }
+  .Indices p:last-child  { font-size: 1.05rem; }
+
+  .slider-container img { width: 85%; }
+
+  .item-action {
+    width: 220px;
+    height: 76px;
+  }
+}
 
 
